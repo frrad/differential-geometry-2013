@@ -37,13 +37,13 @@
 
 \newcommand{\del}{{\ensuremath{\partial}} }
 
-\newcommand{\hint}[1]{{(\emph{Hint:} #1)}} %This line shows hints
+\newcommand{\hint}[1]{{\emph{Hint:} #1}} %This line shows hints
 %\newcommand{\hint}[1]{} %Use this line to hide all hints
 \newcommand{\note}[1]{{(\emph{Note:} #1)}} %This line shows notes
 %\newcommand{\note}[1]{} %Use this line to hide all notes
 
 \newcommand{\pets}[3]{{Petersen, Chapter #1, Exercise #2 on p. #3}}
-\newcommand{\sexion}{\addtocounter{section}{1} }
+\newcommand{\advsection}{\addtocounter{section}{1} }
 
 
 \usepackage{fancyhdr}
@@ -55,7 +55,7 @@
 \lhead{Frederick Robinson}
 \rhead{Differential Geometry: Homework 1}
 
-\section{\pets{1}{5 (a)}{18}}
+\section{Let $G$ be a compact Lie group. Show that $G$ admits a bi-invariant metric, i.e., both right and left translations are isometries. \hint{Fix a left invariant metric $g_L$ and a volume form $\omega - \sigma^1 \wedge \cdots \wedge \sigma^n$ where $\sigma^i$ are left invariant 1-forms. Then define $g$ as the average over right translations: $$g(v,w) = \frac{1}{\int \omega} \int g_L (DR_x (v) , DR_x(w)) \omega.$$}}
 
 \section{Consider the upper-half plane $$\R^2_+  = \{ (x,y) \in \R^2 \mid y > 0 \}$$ with the hyperbolic metric $$\frac{dx^2 + dy^2}{y^2}.$$ Show that  the vertical line segment between $(0,1)$ and $(0,2)$ is the shortest path between these points.}
 
@@ -63,7 +63,7 @@
 \section{Consider $\R_+^2$ with the hyperbolic metric as above. Let $v_0 = (0,1)$ be a tangent vector at the point $(0,1)$ of $\R_+^2$. Let $v(t)$ be the parallel transport of $v_0$ along the curve $x=t$, $y=1$. Show that $v(t)$ makes an angle $t$ with the direction of the $y$-axis, measured in the clockwise sense.}
 
 
-\section{\pets{2}{5}{56}}
+\section{For any $p \in (M,g)$ and orthonormal basis $e_1, \dots, e_n$ for $T_p M$, show that there is an orthonormal frame $E_1, \dots, E_n$ in a neighborhood of $p$ such that $E_i = e_i$ and $(\nabla E_i)|_p = 0 $. \hint{Fix an orthonormal frame $\overline{E}_i$ near $p \in M$ with $\overline{E}_i(p) = e_i$. If we define $E_i = \alpha_i^j \overline{E}_j$, where [$\alpha_i^j (x)$]$\in SO(n)$ and $\alpha_i^j(p) = \delta_i^j$, then this will yield the desired frame provided that the $D_{e_k} \alpha_i^j$ are appropriately prescribed. }}
 
 \section{For any point $p$ in a  Riemannian manifold $(M,g)$, show that there exist coordinates $x^1, \dots, x^n$ near $p$ such that $ \del_i = e_i$ and $\nabla \del_i = 0 $ at $p$.}
 
