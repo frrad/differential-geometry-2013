@@ -37,6 +37,7 @@
 
 \newcommand{\del}{{\ensuremath{\partial}} }
 
+\newcommand{\xt}[2]{\ensuremath{\Gamma^{#1}_{#2}}}
 
 \newcommand{\hint}[1]{{\emph{Hint:} #1}} %This line shows hints
 %\newcommand{\hint}[1]{} %Use this line to hide all hints
@@ -65,14 +66,25 @@ Let $\gamma(t) = \langle \gamma_x(t), \gamma_y(t) \rangle$ be a path $\gamma:[0,
 since we assumed $\gamma$ arclength parameterized this reduces to
 \[|\gamma| = \int_0^a \gamma_y(t) dt.\]
 
-By assumption, $\gamma'_y(t) \in [-1,1]$. In particular $\gamma'_y \leq 1 \Rightarrow \gamma_y'(a-t) \geq 2 -t$. Notice $a \geq 1$ since $\gamma$ is arclength parameterized and the Euclidean distance between its endpoints is 1. Now compute:
+By assumption, $\gamma'_y(t) \in [-1,1]$. In particular $\gamma'_y \leq 1 \Rightarrow \gamma_y(a-t) \geq 2 -t$. Notice $a \geq 1$ since $\gamma$ is arclength parameterized and the Euclidean distance between its endpoints is 1. Now compute:
 \begin{align*}|\gamma| &=  \int_0^a \gamma_y(t) dt \\ & \geq \underbrace{\int_0^{a-1}\gamma_y(t) dt}_{(*)} + \int_1^0(  2-t ) dt  \end{align*}
-Of course the contribution of $(*)$ is strictly positive if $a >1$ since $\gamma_y$ is restricted to take only positive values. Thus, our bound is tight if and only if $a = 1$ and $\gamma'_t(a-t) = 2- t$, to wit, when
+Of course the contribution of $(*)$ is strictly positive if $a >1$ since $\gamma_y$ is restricted to take only positive values. Thus, our bound is tight if and only if $a = 1$ and $\gamma_y(a-t) = 2- t$, to wit, when
 \[\gamma(t) =  \langle 0, 1 +t \rangle\]
 as desired.
 
 \section{Consider $\R_+^2$ with the hyperbolic metric as above. Let $v_0 = (0,1)$ be a tangent vector at the point $(0,1)$ of $\R_+^2$. Let $v(t)$ be the parallel transport of $v_0$ along the curve $x=t$, $y=1$. Show that $v(t)$ makes an angle $t$ with the direction of the $y$-axis, measured in the clockwise sense.}
 
+First note that the nonzero components of the metric (resp. inverse metric) are just
+\[ g^{xx} = g^{yy} = y^2 \quad \mbox{and} \quad g_{xx} = g_{yy} = \frac{1}{y^2}.\]
+We can therefore reduce the expression for Christoffel symbols
+\[ \xt{m}{ij} = \frac{1}{2} \sum_k \left( \frac{\del}{\del x_i } g_{jk} + \frac{\del}{\del x_j}g_{ki} - \frac{\del}{\del x_k} g_{ij} \right) g^{km} = \frac{y^2}{2}  \left( \frac{\del}{\del x_i } g_{jm} + \frac{\del}{\del x_j}g_{mi} - \frac{\del}{\del x_m} g_{ij} \right)\]
+Clearly this can only be nonzero if at least one of $i,j,m$ is $y$ and the others coincide. Thus compute:
+\[\xt{y}{yy} =\xt{x}{xy} =\xt{x}{yx} = - \frac{1}{y}; \quad \xt{y}{xx} = \frac{1}{y}; \quad \xt{m}{ij} = 0   \mbox{ otherwise} .\]
+
+Now let 
+\[v(t) = \langle \sin t, \cos t \rangle \quad x(t) = \langle t, 1 \rangle \quad \dot{x}(t) =\langle 1 , 0 \rangle \]
+and check
+\[\frac{dv^x}{dt } + \sum_{i,j} \xt{x}{ij} v^j \frac{dx_i}{dt} = \cos t - \frac{1}{y} \cos t = 0 \quad \mbox{and} \quad\frac{dv^y}{dt } + \sum_{i,j} \xt{y}{ij} v^j \frac{dx_i}{dt} = - \sin t + \frac{1}{y} \sin t.\]
 
 \section{For any $p \in (M,g)$ and orthonormal basis $e_1, \dots, e_n$ for $T_p M$, show that there is an orthonormal frame $E_1, \dots, E_n$ in a neighborhood of $p$ such that $E_i = e_i$ and $(\nabla E_i)|_p = 0 $. \hint{Fix an orthonormal frame $\overline{E}_i$ near $p \in M$ with $\overline{E}_i(p) = e_i$. If we define $E_i = \alpha_i^j \overline{E}_j$, where [$\alpha_i^j (x)$]$\in SO(n)$ and $\alpha_i^j(p) = \delta_i^j$, then this will yield the desired frame provided that the $D_{e_k} \alpha_i^j$ are appropriately prescribed. }}
 
