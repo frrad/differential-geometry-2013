@@ -71,14 +71,20 @@ From the right we have
 
 \section{Consider the upper-half plane $$\R^2_+  = \{ (x,y) \in \R^2 \mid y > 0 \}$$ with the hyperbolic metric $$\frac{dx^2 + dy^2}{y^2}.$$ Show that  the vertical line segment between $(0,1)$ and $(0,2)$ is the shortest path between these points.}
 
-Let $\gamma(t) = \langle \gamma_x(t), \gamma_y(t) \rangle$ be a path $\gamma:[0,a]\to \R_+^2$ with $\gamma(0) = (0,1)$ and $\gamma(a) = (0,2)$. Assume without loss of generality that $\gamma$ is parameterized by (Euclidean) arclength. We can compute
-\[|\gamma| = \int_0^a  \frac{1}{\gamma_y(t)} \left[ \left( \frac{\gamma'_x(t)}{1/\gamma_y(t) \left(  \gamma'_y(t)^2 + \gamma'_x(t)^2 \right)} \right) ^2 +  \left( \frac{\gamma'_y(t)}{1/\gamma_y(t) \left(  \gamma'_y(t)^2 + \gamma'_x(t)^2 \right)} \right) ^2 \right] dt \]
+Let $\gamma(t) = \langle \gamma_x(t), \gamma_y(t) \rangle$ be a path $\gamma:[0,a]\to \R_+^2$ with 
+$\gamma(0) = (0,1)$ and $\gamma(a) = (0,2)$. Assume without loss of generality that $\gamma$ is parameterized by 
+(Euclidean) arclength. We can compute
+\[|\gamma| = \int_0^a  \frac{1}{\gamma_y(t)} \sqrt{ \gamma'_x(t) ^2 + \gamma'_y(t)^2 } \]
 since we assumed $\gamma$ arclength parameterized this reduces to
-\[|\gamma| = \int_0^a \gamma_y(t) dt.\]
+\[|\gamma| = \int_0^a \frac{1}{\gamma_y(t)} dt.\]
 
-By assumption, $\gamma'_y(t) \in [-1,1]$. In particular $\gamma'_y \leq 1 \Rightarrow \gamma_y(a-t) \geq 2 -t$. Notice $a \geq 1$ since $\gamma$ is arclength parameterized and the Euclidean distance between its endpoints is 1. Now compute:
-\begin{align*}|\gamma| &=  \int_0^a \gamma_y(t) dt \\ & \geq \underbrace{\int_0^{a-1}\gamma_y(t) dt}_{(*)} + \int_1^0(  2-t ) dt  \end{align*}
-Of course the contribution of $(*)$ is strictly positive if $a >1$ since $\gamma_y$ is restricted to take only positive values. Thus, our bound is tight if and only if $a = 1$ and $\gamma_y(a-t) = 2- t$, to wit, when
+By assumption, $\gamma'_y(t) \in [-1,1]$. In particular $\gamma'_y \leq 1 \Rightarrow \gamma_y(a-t) \geq 2 -t$. 
+Notice $a \geq 1$ since $\gamma$ is arclength parameterized and the Euclidean distance between its endpoints is 1.
+ Now compute:
+\begin{align*}|\gamma| &=  \int_0^a \frac{1}{ \gamma_y(t)} dt \\ 
+&\geq \underbrace{\int_0^{a-1} \frac{1}{\gamma_y(t)} dt}_{(*)} + \int_1^0 \frac{1}{ 2-t} dt  \end{align*}
+Of course the contribution of $(*)$ is strictly positive if $a >1$ since $\gamma_y$ is restricted to take only
+ positive values. Thus, our bound is tight if and only if $a = 1$ and $\gamma_y(a-t) = 2- t$, to wit, when
 \[\gamma(t) =  \langle 0, 1 +t \rangle\]
 as desired.
 
