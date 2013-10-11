@@ -36,7 +36,6 @@
 \newcommand{\CP}{{\ensuremath{\mathbb{CP}}} }
 
 \newcommand{\del}{{\ensuremath{\partial}} }
-
 \newcommand{\xt}[2]{\ensuremath{\Gamma^{#1}_{#2}}}
 
 \newcommand{\hint}[1]{{\emph{Hint:} #1}} %This line shows hints
@@ -57,7 +56,18 @@
 \lhead{Frederick Robinson}
 \rhead{Differential Geometry: Homework 1}
 
-\section{Let $G$ be a compact Lie group. Show that $G$ admits a bi-invariant metric, i.e., both right and left translations are isometries. \hint{Fix a left invariant metric $g_L$ and a volume form $\omega - \sigma^1 \wedge \cdots \wedge \sigma^n$ where $\sigma^i$ are left invariant 1-forms. Then define $g$ as the average over right translations: $$g(v,w) = \frac{1}{\int \omega} \int g_L (DR_x (v) , DR_x(w)) \omega.$$}}
+\section{Let $G$ be a compact Lie group. Show that $G$ admits a bi-invariant metric, i.e., both right and left translations are isometries. \hint{Fix a left invariant metric $g_L$ and a volume form $\omega = \sigma^1 \wedge \cdots \wedge \sigma^n$ where $\sigma^i$ are left invariant 1-forms. Then define $g$ as the average over right translations: $$g(v,w) = \frac{1}{\int \omega} \int g_L (DR_x (v) , DR_x(w)) \omega.$$}}
+
+Let $g_L$ be a left invariant metric on $G$, i.e. $g_L(v,w) = g_L(DL_x (v) , DL_x(w) ) $ for all $x \in G$. Suppose also $ \omega = \sigma^1 \wedge \cdots \wedge \sigma^n$ for  $\sigma^i$   left invariant 1-forms, and define as in the hint
+\[g(v,w) = \frac{1}{\int \omega} \int g_L (DR_x (v) , DR_x(w)) \omega.\]
+
+First compute
+\begin{align*}g( DL_y(v),DL_y(w)) &= \frac{1}{\int \omega} \int g_L (DR_x (DL_y(v)) , DR_x(DL_y(w))) \omega \\ &= \frac{1}{\int \omega} \int g_L (DL_y(DR_x (v)) , DL_y(DR_x(w))) \omega\\ &= \frac{1}{\int \omega} \int g_L ( DR_x (v) ,DR_x(w)) \\&= g(v,w) \end{align*}
+so $g$ left invariant.
+
+From the right we have
+\begin{align*}g( DR_y(v),DR_y(w)) &= \frac{1}{\int \omega} \int g_L (DR_x (DR_y(v)) , DR_x(DR_y(w))) \omega \\ &= \frac{1}{\int \omega} \int g_L (DR_{x \cdot y}(v) , DR_{x\cdot y}(w)) \omega\\ &= g(v,w)  \end{align*}
+
 
 \section{Consider the upper-half plane $$\R^2_+  = \{ (x,y) \in \R^2 \mid y > 0 \}$$ with the hyperbolic metric $$\frac{dx^2 + dy^2}{y^2}.$$ Show that  the vertical line segment between $(0,1)$ and $(0,2)$ is the shortest path between these points.}
 
@@ -74,7 +84,7 @@ as desired.
 
 \section{Consider $\R_+^2$ with the hyperbolic metric as above. Let $v_0 = (0,1)$ be a tangent vector at the point $(0,1)$ of $\R_+^2$. Let $v(t)$ be the parallel transport of $v_0$ along the curve $x=t$, $y=1$. Show that $v(t)$ makes an angle $t$ with the direction of the $y$-axis, measured in the clockwise sense.}
 
-First note that the nonzero components of the metric (resp. inverse metric) are just
+First note that the nonzero components of the metric and respectively inverse metric are just
 \[ g^{xx} = g^{yy} = y^2 \quad \mbox{and} \quad g_{xx} = g_{yy} = \frac{1}{y^2}.\]
 We can therefore reduce the expression for Christoffel symbols
 \[ \xt{m}{ij} = \frac{1}{2} \sum_k \left( \frac{\del}{\del x_i } g_{jk} + \frac{\del}{\del x_j}g_{ki} - \frac{\del}{\del x_k} g_{ij} \right) g^{km} = \frac{y^2}{2}  \left( \frac{\del}{\del x_i } g_{jm} + \frac{\del}{\del x_j}g_{mi} - \frac{\del}{\del x_m} g_{ij} \right)\]
@@ -90,7 +100,7 @@ and check
 
 \section{For any point $p$ in a  Riemannian manifold $(M,g)$, show that there exist coordinates $x^1, \dots, x^n$ near $p$ such that $ \del_i = e_i$ and $\nabla \del_i = 0 $ at $p$.}
 
-\section{\pets{2}{10 (e)}{57}}
+\section{Let $(M,g)$ be oriented and define the Riemannian volume form $d$vol as follows: $$d\mbox{vol} ( v_1, \dots, v_n) = \det(g (v_i , e_j)),$$ where $e_1, \dots, e_n$ is a positively oriented orthonormal basis for $T_p M$.}
 
 \section{\pets{2}{11}{58}}
 
