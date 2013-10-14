@@ -36,6 +36,8 @@
 \newcommand{\CP}{{\ensuremath{\mathbb{CP}}} }
 
 \newcommand{\del}{{\ensuremath{\partial}} }
+\newcommand{\vol}{{\mbox{vol}} }
+\renewcommand{\div}{\mbox{div} }
 \newcommand{\xt}[2]{\ensuremath{\Gamma^{#1}_{#2}}}
 
 \newcommand{\hint}[1]{{\emph{Hint:} #1}} %This line shows hints
@@ -104,7 +106,7 @@ and check
 
 \section{For any $p \in (M,g)$ and orthonormal basis $e_1, \dots, e_n$ for $T_p M$, show that there is an orthonormal frame $E_1, \dots, E_n$ in a neighborhood of $p$ such that $E_i = e_i$ and $(\nabla E_i)|_p = 0 $. \hint{Fix an orthonormal frame $\overline{E}_i$ near $p \in M$ with $\overline{E}_i(p) = e_i$. If we define $E_i = \alpha_i^j \overline{E}_j$, where [$\alpha_i^j (x)$]$\in SO(n)$ and $\alpha_i^j(p) = \delta_i^j$, then this will yield the desired frame provided that the $D_{e_k} \alpha_i^j$ are appropriately prescribed. }}
 
-Let $\overline{E}_i$ be an orthonormal frame on a neighboorhood of $p$.  Define  $E_i = \alpha_i^j \overline{E}_j$ and suppose that
+Let $\overline{E}_i$ be an orthonormal frame on a neighborhood of $p$.  Define  $E_i = \alpha_i^j \overline{E}_j$ and suppose that
 \begin{align}\label{der}\nabla_j E_l = \left( \frac{\del E_l^i}{\del x^j } + E_l^k \xt{i}{jk} \right) e_i  = 0 \mbox{ for all }i,j,l\end{align}
 Computing, we get
 \[\frac{\del}{\del x^j} E_l^i = \alpha_l^m \frac{\del}{\del x^j} \overline{E}^i_m + \overline{E}^i_m \frac{\del}{\del x^j} \alpha^m_l\]
@@ -122,9 +124,37 @@ Since these derivatives are antisymmetric in $i,l$ the matrices $[\alpha_l^i]$ m
 \section{For any point $p$ in a  Riemannian manifold $(M,g)$, show that there exist coordinates $x^1, \dots, x^n$ near $p$ such that $ \del_i = e_i$ and $\nabla \del_i = 0 $ at $p$.}
 
 \section{Let $(M,g)$ be oriented and define the Riemannian volume form $d$vol as follows: $$d\mbox{vol} ( v_1, \dots, v_n) = \det(g (v_i , e_j)),$$ where $e_1, \dots, e_n$ is a positively oriented orthonormal basis for $T_p M$.}
+\addtocounter{subsection}{4}
+\subsection{Conclude that the Laplacian has the formula $$\Delta u = \frac{1}{\sqrt{\det(g_{ij})} }\del_k \left( \sqrt{\det(g_{ij})} g^{kl} \del_l u)\right).$$}
+Using previous parts we compute
+\begin{align*}\Delta u \cdot dvol(\del_1, \dots, \del_n) &= (L_{g^{kl} \del_l u \del_k } dvol) (\del_1, \dots, \del_n) \\&=g^{kl} \del_l u (L_{\del_k} dvol)(\del_1, \dots, \del_n) + d(g^{kl} \del_l u )(\del_m) dvol(\del_1, \dots, \del_k, \dots, \del_n) \\ &= g^{kl} \del_l u \del_k \sqrt{\det(g_{ij})} + \del_k(g^{kl} \del_l u) \sqrt{\det (g_{ij}) } \\&= \del_k \left(  \sqrt{\det (g_{ij})} g^{kl} \del_l u\right)\\ &= \frac{1}{\sqrt{\det(g_{ij})}} \del_k \left( \sqrt{ \det(g_{ij}) } g^{kl} \del_l u\right) \end{align*}
 
-\section{\pets{2}{11}{58}}
+\section{Let $(M,g)$ be a oriented Riemannian manifold with volume form $d$vol as above.}
+\subsection{If $f$ has compact support, then $$\int_M \Delta f \cdot d\vol =0.$$}
+ \begin{align*}\int_M \Delta f \cdot d\vol &= \int_M L_{\nabla f} d \vol \\ &= \int_M i_{\nabla f} d(d \vol) + d(i_{\nabla f} d \vol) \\ &=0\end{align*}
+\subsection{Show that $$\div (f \cdot X) = g(\nabla f, X) + f \cdot \div X$$}
+\begin{align*} \div (f \cdot X) &= \div(f \cdot X) d \vol (e_1, \dots, e_n) \\ &= (L_{f \cdot x} d \vol ) (E_1 , \dots, E_n) \\ &= f(L_X d \vol)(E_1, \dots, E_n) + df (E_i) d \vol (E_1, \dots, X, \dots, E_n) \\ &= f(\div X) d \vol(E_1, \dots, E_n) + g(\nabla f, E_i)g(X,E_i) \\ &= f \cdot \div X + g(\nabla f, X). \end{align*}
+\subsection{Show that $$\Delta (f_1 \cdot f_2) = ( \Delta f_1) \cdot f_2 + 2 g (\nabla f_1, \nabla f_2) + f_1 \cdot (\Delta f_2).$$}
+\begin{align*} \Delta(f_1 \cdot f_2) &= \div(\nabla( f_1 \cdot f_2)) \\ &= \div(f_1 \cdot \nabla f_2 + f_2 \cdot \nabla f_1) \\ &= f_1 \Delta f_2 + g( \nabla f_1, \nabla f_2) + f_2 \Delta f_1 + g(\nabla f_2, \nabla f_1) \\ &= f_1 \Delta f_2 + 2 g( \nabla f_1, \nabla f_2) + f_2 \Delta f_1. \end{align*}
+\subsection{Establish the integration by parts formula for functions with compact support: $$\int_M f_1 \cdot \Delta f_2 \cdot d \vol = - \int_M g(\nabla f_1, \nabla f_2 ) \cdot d \vol.$$}
+\begin{align*} \int_M f_1 \cdot \Delta f_2 \cdot d \vol &= \int_M f_1 \cdot \div (\nabla f_2 ) \cdot d \vol \\ &= \int_M(\div(f_1 \cdot \nabla f_2) - g(\nabla f_1, \nabla f_2)) \cdot d \vol \\ &= - \int_M g(\nabla f_1 , \nabla f_2) \cdot d \vol.\end{align*}
+\subsection{Conclude that if $f$ is sub- or superharmonic (i.e., $\Delta f \geq 0$ or $\Delta f \leq 0$) then $f$ is constant. \hint{first show $\Delta f =0$; then use integration by parts on $f \cdot \Delta f$.}}
+Let $\Delta f \geq 0$. 
+\[ 0 = \int_M \Delta f \cdot d \vol \geq 0,\]
+so $\Delta f = 0$. Thus,
+\[0 = \int_M f \cdot \Delta f \cdot d \vol = - \int_M g( \nabla f, \nabla f) \cdot d \vol\]
+which implies $\nabla f \equiv 0$, $f$ constant as desired. 
 
-\section{\pets{2}{13}{58}}
+\section{Let $X$ be a unit vector filed on $(M,g)$ such that $\nabla_X X =0$.}
+\subsection{Show that $x$ is locally the gradient of a distance function iff the orthogonal distribution is integrable.}
+\subsection{Show that $X$ is the gradient of a distance function in a neighborhood of $p \in M$ iff the orthogonal distribution has an integral submanifold through $p$. \hint{It might help to show that $L_X \theta_X =0$.}}
+\subsection{Find $X$ with the given conditions so that it is not a gradient field. \hint{Consider $S^3$}}
+
+
+
+
+
+
+
 
 \end{document}
