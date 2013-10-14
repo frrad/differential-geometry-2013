@@ -104,6 +104,21 @@ and check
 
 \section{For any $p \in (M,g)$ and orthonormal basis $e_1, \dots, e_n$ for $T_p M$, show that there is an orthonormal frame $E_1, \dots, E_n$ in a neighborhood of $p$ such that $E_i = e_i$ and $(\nabla E_i)|_p = 0 $. \hint{Fix an orthonormal frame $\overline{E}_i$ near $p \in M$ with $\overline{E}_i(p) = e_i$. If we define $E_i = \alpha_i^j \overline{E}_j$, where [$\alpha_i^j (x)$]$\in SO(n)$ and $\alpha_i^j(p) = \delta_i^j$, then this will yield the desired frame provided that the $D_{e_k} \alpha_i^j$ are appropriately prescribed. }}
 
+Let $\overline{E}_i$ be an orthonormal frame on a neighboorhood of $p$.  Define  $E_i = \alpha_i^j \overline{E}_j$ and suppose that
+\begin{align}\label{der}\nabla_j E_l = \left( \frac{\del E_l^i}{\del x^j } + E_l^k \xt{i}{jk} \right) e_i  = 0 \mbox{ for all }i,j,l\end{align}
+Computing, we get
+\[\frac{\del}{\del x^j} E_l^i = \alpha_l^m \frac{\del}{\del x^j} \overline{E}^i_m + \overline{E}^i_m \frac{\del}{\del x^j} \alpha^m_l\]
+which reduces, at $p$ to
+\[\frac{\del}{\del x^j} E_l^i =  \frac{\del}{\del x^j} \overline{E}^i_l +   \frac{\del}{\del x^j} \alpha^i_l.\]
+
+Thus, (\ref{der}) is equivalent (at $p$) to 
+\begin{align*} 0 &=  \frac{\del}{\del x^j} \overline{E}^i_l +   \frac{\del}{\del x^j} \alpha^i_l+ \overline{E}^k_l \xt{i}{jk} \\ &=   \frac{\del}{\del x^j} \overline{E}^i_l +   \frac{\del}{\del x^j} \alpha^i_l+ \xt{i}{jl} \\ &=  \xt{l}{ij} +   \frac{\del}{\del x^j} \alpha^i_l+ \xt{i}{jl} \end{align*}
+
+Now, let $[\alpha_l^i]$ be a family of matrices defined on a neighborhood of $p$ by setting $\alpha_i^j(p) = \delta_i^j$ and demanding that $\alpha_l^i$ satisfy the family of differential equations 
+\[ \frac{\del}{\del x^j} \alpha^i_l= - \xt{l}{ij} - \xt{i}{jl} \]
+Since these derivatives are antisymmetric in $i,l$ the matrices $[\alpha_l^i]$ must belong to $SO(n)$. Furthermore,  $E_i = \alpha_i^j \overline{E}_j$ has the desired $(\nabla E_i)|_p = 0 $ by our previous computation.
+
+
 \section{For any point $p$ in a  Riemannian manifold $(M,g)$, show that there exist coordinates $x^1, \dots, x^n$ near $p$ such that $ \del_i = e_i$ and $\nabla \del_i = 0 $ at $p$.}
 
 \section{Let $(M,g)$ be oriented and define the Riemannian volume form $d$vol as follows: $$d\mbox{vol} ( v_1, \dots, v_n) = \det(g (v_i , e_j)),$$ where $e_1, \dots, e_n$ is a positively oriented orthonormal basis for $T_p M$.}
