@@ -33,6 +33,7 @@
 \newcommand{\xt}[2]{\ensuremath{\Gamma^{#1}_{#2}}}
 \newcommand{\ric}{\mbox{Ric}}
 \newcommand{\scal}{\mbox{scal}}
+\newcommand{\tr}{\mbox{tr}}
 
 \newcommand{\hint}[1]{{\emph{Hint:} #1}} %This line shows hints
 %\newcommand{\hint}[1]{} %Use this line to hide all hints
@@ -67,7 +68,11 @@ As above, but let $M = S^2 \times S^2$ ($m=n=2$). Now $\ric(X) = a X > 0$, $\ric
 
 \subsection{positive sectional curvature but not positive curvature operator.}
 
-\section{Show that a Riemannian manifold with parallel Ricci tensor has constant scalar curvature. In chapter 3 it will be shown that the converse is not true, and also that a metic with parallel curvature tensor doesn't have to be Einstein.}
+\section{Show that a Riemannian manifold with parallel Ricci tensor has constant scalar curvature.
+In chapter 3 it will be shown that the converse is not true, and also that a metic with parallel curvature tensor doesn't have to be Einstein.}
+We have 
+\[\nabla \scal = \nabla (\tr (\ric))  = \tr ( \nabla \ric ) = 0.\]
+Therefore, $\scal$ is constant as desired.
 
 \section{Let $G$ be a Lie group with a bi-invariant metric. Using 
 left-invariant fields establish the following formulas. \hint{First go back to the exercises to chapter 1 and take a peek at chapter 3 where some of these things   are proved.} \\ \\ (You can assume the following which are proved in Proposition 12 on p. 79. I suggest you read that proof.) \\ \\ $\nabla_X Y = \frac{1}{2} [X,Y]; \quad R(X,Y)Z = \frac{1}{4}[Z,[X,Y]]; \quad g(R(X,Y)Z,W) = - \frac{1}{4} (g([X,Y],[Z,W]))$}
