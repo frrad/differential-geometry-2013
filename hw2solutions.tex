@@ -93,10 +93,43 @@ if and only if
 \[ 0 = g(R(E_i, X) X , E_i) =  \frac{1}{4} g([E_i, X ] , [E_i, X] ) \]
 for all $i$.
 
-\subsection{Consider the linear map $\Lambda^2 \mathfrak{g} \to [\mathfrak{g} , \mathfrak{g}]$ that sends $X \wedge Y$ to $[X,Y]$. Show that the sectional curvature is positive iff this map is an isomorphism. Conclude that this can only happen if $n=3$ and $\mathfrak{g} = \mathfrak{su} (2)$.}
+\subsection{Consider the linear map $\Lambda^2 \mathfrak{g} \stackrel{p}{\to} [\mathfrak{g} , \mathfrak{g}]$ that sends $X \wedge Y$ to $[X,Y]$. Show that the sectional curvature is positive iff this map is an isomorphism. Conclude that this can only happen if $n=3$ and $\mathfrak{g} = \mathfrak{su} (2)$.}
 
+Clearly the given map is onto. It is therefore an isomorphism exactly when it is an injection, i.e. when $[X,Y] = 0 \iff X = \alpha Y$. Of course, 
+\begin{align*}
+	\sec(v,w) &= \frac{g(R(w,v)v,w)}{g(v \wedge w, v \wedge w)}\\
+	&= \frac{g([v,w],[v,w])}{ 4 g(v \wedge w, v \wedge w)}
+\end{align*}
+which is positive if and only if $|[v,w]| > 0$ for all $v \neq \lambda w$.
+
+Now if $\dim \mathfrak g = n$ we have $\dim \Lambda^2 \mathfrak{g} = \frac{1}{2}n(n-1)$ and, since the derived Lie algebra is a subalgebra, $\dim[\mathfrak{g} , \mathfrak{g} ] \leq \dim \mathfrak{g}$.
+Therefore for the desired isomorphism to occur we must have 
+\[\frac{1}{2}n(n-1) \leq n \iff 0 \leq n \leq 3 .\]
+But, by classification of Lie Algebras the only viable algebra is $\mathfrak{g} = \mathfrak{su}(2)$ as desired.
 
 \section{Consider a Riemannian metric $(M,g)$. Now \emph{scale} the metric by multiplying it by a number $\lambda^2$. Then we get  a new Riemannian manifold $(M, \lambda^2 g)$. Show that the new connection and $(1,3)$-curvature tensor remain the same, but that sec, scal, and $\mathfrak{R}$ all get multiplied by $\lambda^{-2}$.}
+
+The Levi-Civita connection is given by 
+\[g(\nabla_X Y, Z) =  \frac{1}{2} \{ X (g(Y,Z)) + Y (g(Z,X)) - Z (g(X,Y)) + g([X,Y],Z) - g([Y,Z], X) - g([X,Z], Y) \}\]
+which formula is invariant under scaling of the metric.
+Similarly, the $(1,3)$-curvature tensor is defined soley in terms of the connection so $\nabla$ remaining unchanged means that $R$ is as well.
+
+Denote the scaled metric $g'$ and compute
+\[g'(x\wedge y, v \wedge w) = g'(x,v) g'(y,w) - g'(x,w) g'(y,v) = \lambda^4 \left( g(x,v) g(y,w) - g(x,w) g(y,v) \right) = \lambda^4 g(x\wedge y, v \wedge w) . \]
+
+Therefore if $\mathfrak{S}$ denotes the scaled curvature operator we have
+\begin{align*}
+	\lambda ^4 g(\mathfrak{S}(X \wedge Y), V \wedge W ) &= \\
+	g'(\mathfrak{S}(X \wedge Y), V \wedge W) &= R'(X \wedge Y , V \wedge W)\\
+	&= g'(R (X,Y)Z,W)\\
+	&= \lambda^2 g(R(X,Y)Z,W).
+\end{align*}
+So, $\mathfrak{S}$, defined by the relation $ g(\mathfrak{S}(X \wedge Y), V \wedge W ) = \frac{1}{\lambda^2} g(R(X,Y)Z,W)$ is precisely $\mathfrak{R} / \lambda^2$ as desired.
+
+Finally compute
+\[\sec'(v,w) = \frac{g'( \mathfrak{S}(v \wedge w), v \wedge w)}{g'(v \wedge w, v \wedge w)}  = \frac{1}{\lambda^2} \frac{g ( \mathfrak{R}(v \wedge w), v \wedge w)}{g(v \wedge w, v \wedge w)} = \frac{1}{\lambda} \sec(v,w)\]
+and
+\[\scal' = 2 \cdot \tr \mathfrak{S} = \frac{2}{\lambda^2} \tr \mathfrak{R} = \frac{1}{\lambda^2} \scal.\]
 
 \section{Recall that complex manifolds have complex tangent spaces. Thus we can multiply vectors by $\sqrt {-1}$. As a generalization of this we can define an \emph{almost complex} structure. This is a $(1,1)$-tensor $J$ such that $J^2 =-I$. Show that the \emph{Nijenhuis tensor:} $$N(X,Y) = [J(X), J(Y)] - J([J(X),Y])- J([X,J(Y)]) - [X,Y]$$ is indeed a tensor. If $J$ comes from a complex structure then $N=0$, conversely Newlander \& Nirenberg have shown that $J$ comes from a complex structure if $N=0$.\\\\A \emph{Hermitian  structure} on a Riemannian manifold $(M,g)$ is an almost complex structure $J$ such that $$g(J(X), J(Y)) = g(X,Y).$$ The \emph{K\"ahler form} of a Hermitian structure is $$\omega(X,Y) = g(J(X),Y).$$ Show that $\omega$ is a 2-form. Show that $d \omega =0$ iff $\nabla J=0$. If the K\"ahler form is closed, then we call the metric a K\"ahler metric.}
 
