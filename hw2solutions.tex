@@ -18,8 +18,8 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{titlesec}
-
 \usepackage{titling}
+
 \setlength{\droptitle}{-6em}
 \posttitle{\par\end{center}\vspace{-4.8em}}
 
@@ -31,9 +31,10 @@
 
 \newcommand{\del}{{\ensuremath{\partial}} }
 \newcommand{\xt}[2]{\ensuremath{\Gamma^{#1}_{#2}}}
-\newcommand{\ric}{\mbox{Ric}}
-\newcommand{\scal}{\mbox{scal}}
-\newcommand{\tr}{\mbox{tr}}
+
+\DeclareMathOperator{\ric}{Ric}
+\DeclareMathOperator{\scal}{scal}
+\DeclareMathOperator{\tr}{tr}
 
 \newcommand{\hint}[1]{{\emph{Hint:} #1}} %This line shows hints
 %\newcommand{\hint}[1]{} %Use this line to hide all hints
@@ -77,7 +78,21 @@ Therefore, $\scal$ is constant as desired.
 \section{Let $G$ be a Lie group with a bi-invariant metric. Using 
 left-invariant fields establish the following formulas. \hint{First go back to the exercises to chapter 1 and take a peek at chapter 3 where some of these things   are proved.} \\ \\ (You can assume the following which are proved in Proposition 12 on p. 79. I suggest you read that proof.) \\ \\ $\nabla_X Y = \frac{1}{2} [X,Y]; \quad R(X,Y)Z = \frac{1}{4}[Z,[X,Y]]; \quad g(R(X,Y)Z,W) = - \frac{1}{4} (g([X,Y],[Z,W]))$}
 \subsection{Show that the curvature operator is also nonnegative by showing that: $$g \left( \mathfrak{R}\left( \sum_{i=1}^k X_i \wedge Y_i \right) , \left( \sum_{i=1}^k X_i \wedge Y_i \right) \right) = \frac{1}{4} \left| \sum_{i=1}^k [X_i, Y_i ] \right|^2 .$$}
+
+Compute:
+\begin{align*}
+	g \left( \mathfrak{R}\left( \sum_{i=1}^k X_i \wedge Y_i \right) , \left( \sum_{i=1}^k X_i \wedge Y_i \right) \right) &= \sum_{1 \leq i,j \leq k} R(X_i, Y_i, Y_j, X_j)\\
+	&= \frac{1}{4} \sum_{1 \leq i, j \leq k }   g\left( [X_i, Y_i] , [ X_j, Y_j]   \right)\\
+	&= \frac{1}{4} \left| \sum_{i=1}^k [X_i, Y_i]  \right|^2
+\end{align*}
+
 \subsection{Show that $\ric(X,X) =0$ iff $X$ commutes with all other left-invariant vector fields. Thus $G$ has positive Ricci curvature if the center of $G$ is discrete.}
+Fixing a basis for $T_e M$, observe that $X$ commutes with all left-invariant vector fields if and only if $[X,E_i] = 0$ for the left-invariant $E_i(e) = e_i$. However,
+\[0 = \ric (X,X) = \sum_{i=1}^n g( R (E_i, X) X, E_i)\] 
+if and only if 
+\[ 0 = g(R(E_i, X) X , E_i) =  \frac{1}{4} g([E_i, X ] , [E_i, X] ) \]
+for all $i$.
+
 \subsection{Consider the linear map $\Lambda^2 \mathfrak{g} \to [\mathfrak{g} , \mathfrak{g}]$ that sends $X \wedge Y$ to $[X,Y]$. Show that the sectional curvature is positive iff this map is an isomorphism. Conclude that this can only happen if $n=3$ and $\mathfrak{g} = \mathfrak{su} (2)$.}
 
 
@@ -85,7 +100,7 @@ left-invariant fields establish the following formulas. \hint{First go back to t
 
 \section{Recall that complex manifolds have complex tangent spaces. Thus we can multiply vectors by $\sqrt {-1}$. As a generalization of this we can define an \emph{almost complex} structure. This is a $(1,1)$-tensor $J$ such that $J^2 =-I$. Show that the \emph{Nijenhuis tensor:} $$N(X,Y) = [J(X), J(Y)] - J([J(X),Y])- J([X,J(Y)]) - [X,Y]$$ is indeed a tensor. If $J$ comes from a complex structure then $N=0$, conversely Newlander \& Nirenberg have shown that $J$ comes from a complex structure if $N=0$.\\\\A \emph{Hermitian  structure} on a Riemannian manifold $(M,g)$ is an almost complex structure $J$ such that $$g(J(X), J(Y)) = g(X,Y).$$ The \emph{K\"ahler form} of a Hermitian structure is $$\omega(X,Y) = g(J(X),Y).$$ Show that $\omega$ is a 2-form. Show that $d \omega =0$ iff $\nabla J=0$. If the K\"ahler form is closed, then we call the metric a K\"ahler metric.}
 
-\section{There is a strange curvature quantity we have not yet mentioned. Its definition is somewhat cumbersome and nonintuitive. First, for two symmetric $(0,2)$-tensors $h,k$ define the \emph{Kulkarni-Nomizu product} as the $(0,4)$-tensor $$h \circ k(v_1, v_2, v_3, v_4) = h(v_1,v_3) \cdot k(v_2, v_4) + h(v_2, v_4) \cdot k(v_1, v_3)$$ $$\hspace{3.65cm}- h(v_1, v_4) \cdot k(v_2, v_3) -h(v_2, v_3) \cdot k(v_1, v_4).$$ Note that $(M, g)$ has constant curvature $c$ iff the $(0,4)$-curvature tensor satisfies $R = c \cdot (g \circ g)$. If we use the $(0,2)$ form of the Ricci tensor, then we can decompose the $(0,4)$-curvature tensor as follows in dimensions $n \geq 4$ $$R = \frac{\scal}{2n ( n-1)} g \circ g + \left( \ric - \frac{\scal}{n} \cdot g \right) \circ g + W $$ When $n=3$ we have instead $$ R = \frac{\scal}{12} g \circ g + \left( \ric - \frac{\scal}{3} \cdot g \right) \circ g.$$ The $(0,4)$-tensor $W$ defined for $n > 3$ is called the \emph{Weyl tensor.}}
+\section{There is a strange curvature quantity we have not yet mentioned. Its definition is somewhat cumbersome and nonintuitive. First, for two symmetric $(0,2)$-tensors $h,k$ define the \emph{Kulkarni-Nomizu product} as the $(0,4)$-tensor $$h \circ k(v_1, v_2, v_3, v_4) = h(v_1,v_4) \cdot k(v_2, v_3) + h(v_2, v_3) \cdot k(v_1, v_4)$$ $$\hspace{3.65cm}- h(v_1, v_3) \cdot k(v_2, v_4) -h(v_2, v_4) \cdot k(v_1, v_3).$$ Note that $(M, g)$ has constant curvature $c$ iff the $(0,4)$-curvature tensor satisfies $R = c \cdot (g \circ g)$. If we use the $(0,2)$ form of the Ricci tensor, then we can decompose the $(0,4)$-curvature tensor as follows in dimensions $n \geq 4$ $$R = \frac{\scal}{2n ( n-1)} g \circ g + \frac{1}{n-2} \left( \ric - \frac{\scal}{n} \cdot g \right) \circ g + W $$ When $n=3$ we have instead $$ R = \frac{\scal}{12} g \circ g + \left( \ric - \frac{\scal}{3} \cdot g \right) \circ g.$$ The $(0,4)$-tensor $W$ defined for $n > 3$ is called the \emph{Weyl tensor.}}
 \subsection{Show that these decompositions are orthogonal, in particular: $$|R|^2 = \left| \frac{\scal}{2n ( n-1)} g \circ g \right| ^2  + \left| \left( \ric - \frac{\scal}{n} \cdot g \right) \circ g \right|^2 + |W|^2.$$}
 \subsection{Show that if we conformally change the metric $\tilde{g} = f \cdot g$, then $\tilde{W} = f \cdot W$.}
 \subsection{If $(M,g)$ has constant curvature, then $W=0$.}
