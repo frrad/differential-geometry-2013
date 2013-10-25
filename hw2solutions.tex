@@ -133,11 +133,29 @@ and
 
 \section{Recall that complex manifolds have complex tangent spaces. Thus we can multiply vectors by $\sqrt {-1}$. As a generalization of this we can define an \emph{almost complex} structure. This is a $(1,1)$-tensor $J$ such that $J^2 =-I$. Show that the \emph{Nijenhuis tensor:} $$N(X,Y) = [J(X), J(Y)] - J([J(X),Y])- J([X,J(Y)]) - [X,Y]$$ is indeed a tensor. If $J$ comes from a complex structure then $N=0$, conversely Newlander \& Nirenberg have shown that $J$ comes from a complex structure if $N=0$.\\\\A \emph{Hermitian  structure} on a Riemannian manifold $(M,g)$ is an almost complex structure $J$ such that $$g(J(X), J(Y)) = g(X,Y).$$ The \emph{K\"ahler form} of a Hermitian structure is $$\omega(X,Y) = g(J(X),Y).$$ Show that $\omega$ is a 2-form. Show that $d \omega =0$ iff $\nabla J=0$. If the K\"ahler form is closed, then we call the metric a K\"ahler metric.}
 
+To confirm tensoriality we compute:
+\begin{align*}
+	N(X,f Y) &= [J(X), f J(Y)] - J([J(X),f Y])- J([X,f J(Y)]) - [X,f Y]\\
+	&=J(X)(f) J(Y)  + f [J(X), J(Y)]  - J( J(X)(f)Y + f[J(X),Y]) \\
+	& \hspace{2.55cm}- J(X(f)J(Y) +f[X, J(Y)]) -X(f)Y -  f[X, Y]\\
+	&= f [J(X), J(Y)]  - f J([J(X),Y])  +f[X, J(Y)])  -  f[X, Y]\\
+	&= f \cdot  N(X,Y)
+\end{align*}
+
+\begin{align*}
+	N(X,A+ B) &= [J(X),  J(A+B)] - J([J(X),A+B])- J([X,J(A+B)]) - [X,A+B] \\
+	&= N(X,A)+N(X,B)
+\end{align*}
+and similarly in the first place.
+
+Tensoriality of $\omega$ is immediate. For antisymmetry compute:
+\[\omega(Y,X) = g(J(Y),X) = g(J^2(Y), J(X)) = -g(J(X), Y)\]
+
 \section{There is a strange curvature quantity we have not yet mentioned. Its definition is somewhat cumbersome and nonintuitive. First, for two symmetric $(0,2)$-tensors $h,k$ define the \emph{Kulkarni-Nomizu product} as the $(0,4)$-tensor $$h \circ k(v_1, v_2, v_3, v_4) = h(v_1,v_4) \cdot k(v_2, v_3) + h(v_2, v_3) \cdot k(v_1, v_4)$$ $$\hspace{3.65cm}- h(v_1, v_3) \cdot k(v_2, v_4) -h(v_2, v_4) \cdot k(v_1, v_3).$$ Note that $(M, g)$ has constant curvature $c$ iff the $(0,4)$-curvature tensor satisfies $R = c \cdot (g \circ g)$. If we use the $(0,2)$ form of the Ricci tensor, then we can decompose the $(0,4)$-curvature tensor as follows in dimensions $n \geq 4$ $$R = \frac{\scal}{2n ( n-1)} g \circ g + \frac{1}{n-2} \left( \ric - \frac{\scal}{n} \cdot g \right) \circ g + W $$ When $n=3$ we have instead $$ R = \frac{\scal}{12} g \circ g + \left( \ric - \frac{\scal}{3} \cdot g \right) \circ g.$$ The $(0,4)$-tensor $W$ defined for $n > 3$ is called the \emph{Weyl tensor.}}
 \subsection{Show that these decompositions are orthogonal, in particular: $$|R|^2 = \left| \frac{\scal}{2n ( n-1)} g \circ g \right| ^2  + \left| \left( \ric - \frac{\scal}{n} \cdot g \right) \circ g \right|^2 + |W|^2.$$}
 \subsection{Show that if we conformally change the metric $\tilde{g} = f \cdot g$, then $\tilde{W} = f \cdot W$.}
 \subsection{If $(M,g)$ has constant curvature, then $W=0$.}
-\subsection{If $(M,g)$ is locally conformally equivalen to the Euclidean metric, i.e., locally we can always find coordinates where: $$g = f \cdot \left( (dx^1)^2 + \cdots + (dx^n)^2 \right), $$ then $W=0$. The converse is also true but much harder to prove.}
+\subsection{If $(M,g)$ is locally conformally equivalent to the Euclidean metric, i.e., locally we can always find coordinates where: $$g = f \cdot \left( (dx^1)^2 + \cdots + (dx^n)^2 \right), $$ then $W=0$. The converse is also true but much harder to prove.}
 
 
 
