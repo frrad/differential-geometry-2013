@@ -13,28 +13,24 @@
 \addtolength{\topmargin}{-.875in}
 \addtolength{\textheight}{1.75in}
 
-\usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{titlesec}
-\usepackage{titling}
+\usepackage{amsmath, amssymb, amsthm, fancyhdr, graphicx, titlesec, titling}
 
 \setlength{\droptitle}{-6em}
 \posttitle{\par\end{center}\vspace{-4.8em}}
 
-\newcommand{\R}{{\ensuremath{\mathbb{R}}} }
-\newcommand{\C}{{\ensuremath{\mathbb{C}}} }
-\newcommand{\Z}{{\ensuremath{\mathbb{Z}}} }
-\newcommand{\RP}{{\ensuremath{\mathbb{RP}}} }
-\newcommand{\CP}{{\ensuremath{\mathbb{CP}}} }
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\CP}{\ensuremath{\mathbb{CP}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\RP}{\ensuremath{\mathbb{RP}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
 
-\newcommand{\del}{{\ensuremath{\partial}} }
+\newcommand{\del}{\ensuremath{\partial}}
 \newcommand{\xt}[2]{\ensuremath{\Gamma^{#1}_{#2}}}
 
 \DeclareMathOperator{\ric}{Ric}
 \DeclareMathOperator{\scal}{scal}
 \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\2}{II}
 
 \newcommand{\hint}[1]{{\emph{Hint:} #1}} %This line shows hints
 %\newcommand{\hint}[1]{} %Use this line to hide all hints
@@ -44,7 +40,6 @@
 \newcommand{\pets}[3]{{Petersen, Chapter #1, Exercise #2 on p. #3.}}
 \newcommand{\advsection}{\addtocounter{section}{1} }
 
-\usepackage{fancyhdr}
 \pagestyle{fancyplain}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -53,42 +48,26 @@
 \lhead{Frederick Robinson}
 \rhead{Differential Geometry: Homework 3}
 
-\section{\pets{5}{1}{149}}
+\section{Assume that $(M,g)$ has the property that all geodesics exist for a fixed time $\epsilon > 0$. Show that $(M,g)$ is geodesically complete.}
 
-\section{\pets{5}{2}{149}}
+\section{A Riemannian manifold is said to be homogeneous if the isometry group acts transitively. Show that homogeneous manifolds are geodescially complete.}
 
-\section{\pets{5}{8(c)}{149} (The definition of \emph{totally geodesic} is on p. 145)}
+\section{Let $N \subset (M,g)$ be a submanifold. Let $\nabla^N$ denote the connection on $N$ that comes from teh metric induced by $g$. Define the second fundamental form of $N$ in $M$ by $$\2(X,Y) = \nabla_X^N Y - \nabla_X Y$$ Show that $\2 =0$ on $N$ iff $N$ is totally geodesic. (The definition of \emph{totally geodesic} is on p. 145)}
 
 \section{Let $p$ be a point in a Riemannian manifold $(M, g)$ and $\sigma \subset T_p M$ a two-dimensional subspace. For small $r > 0$, let $\Sigma_\sigma \subset M$ be the (diffeomorphic) image of $B(0,r) \cap \sigma \subset T_pM$ under the exponential map exp$_p$. Show that the sectional curvature $\sec(\sigma)$ at $p$ (computed inside $M$) is equal to the sectional curvature (that is, Gaussian curvature) of the surface $\Sigma_\sigma$ at $p$, in the induced metric.}
 
 \section{Let $SO(n)$ be the Lie group of orthogonal matrices of determinant 1. Equip $SO(n)$ with a bi-invariant Riemannian metric $g$ of volume one, as constructed in the previous homework. The tangent space $T_I SO(n)$ can be identified with the space $\mathfrak{so}(n)$ of skew-adjoint matrices. Show that the exponential map (with respect to $g$) $$\exp_I : \mathfrak{so}(n) \to SO(n)$$ coincides with the usual matrix exponentiation $A \to e^A$. \\\\ \hint{Feel free to use Proposition 12 on p.79 in Petersen's book. Compare also exercise 19 in Petersen, Chapter 5, p.151.}}
 
-\section{\pets{6}{5}{184}}
+\section{Let $\gamma :[0,1] \to M$ be a geodesic. Show that $\exp_{\gamma(0)}$ has a critical point at $t \dot{\gamma}(0)$ iff there is a Jacobi field $J$ along $\gamma$ such that $J(0) = 0$, $\dot{J}(0) \neq 0$, and $J(t) =0$.}
 
-\section{\pets{6}{8}{184} (See the definition of a \emph{Killing field} on p.23.)}
+\section{Let $\gamma$ be a geodesic and $X$ a Killing field in a Riemannian manifold. Show that the restriction of $X$ to $\gamma$ is a Jacobi field. (See the definition of a \emph{Killing field} on p.23.)}
 
-\section{\pets{6}{10}{184}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\section{A Riemannian manifold is said to be $k$-\emph{point homogeneous} if for all pairs of points $(p_1, \dots, p_k)$ and $(q_1, \dots, q_k)$ with $d(p_i, p_j) = d(q_i, q_j)$ there is an isometry $F$ with $F(p_i) = q_i$. When $k=1$ we simply say tat the space is homogeneous.}
+\subsection{Show that a homogeneous space has constant scalar curvature.}
+\subsection{Show that if $k > 2$ and $(M,g)$ is $k$-point homogeneous, then $M$ is also $(k-1)$-point homogeneous.}
+\subsection{Show that if $(M,g)$ is two-point homogeneous, then $(M,g)$ is an Einstein metric.}
+\subsection{Show that if $(M,g)$ is three-point homogeneous, then $(M,g)$ has constant curvature.}
+\subsection{Classify all three-point homogeneous spaces. \hint{The only one that isn't simply connected is the real projective space.}}
 
 
 
