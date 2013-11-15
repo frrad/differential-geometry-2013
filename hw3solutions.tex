@@ -63,6 +63,13 @@ Since there is a global injectivity radius we can extend any geodesic indefinite
 
 A submanifold $N \subset (M,g)$  is said to be \emph{totally geodesic} if for each $p \in N$ a neighborhood of $0 \in T_p N$ is mapped into $N$ via the exponential map $\exp_p$.
 
+Suppose that $\2 =0$ and $\gamma$ a geodesic in $N$. Then $\nabla_{\dot{\gamma}} \dot{\gamma} = \nabla^N_{\dot{\gamma}} \dot{\gamma} =0$
+
+Conversely, suppose that $N$ is totally geodesic, and recall
+\[ \2(X,Y) = \frac{1}{2} \left( \2(X+Y, X+Y) - \2(X,X) -\2(Y,Y) \right).\]
+It therefore suffices to show that $\2(v,v) =0 $ for all $v \in T_p N$, $p \in N$. Let $\gamma : [0,1] \to N$ the geodesic with $\gamma(0) = p, \dot{\gamma}(0) = v$. Notice $\nabla_{\dot{\gamma}}^N \dot{\gamma} = \nabla_{\dot{\gamma}}  \dot{\gamma} = 0$, so $\2(v,v) =0$
+
+
 \section{Let $p$ be a point in a Riemannian manifold $(M, g)$ and $\sigma \subset T_p M$ a two-dimensional subspace. For small $r > 0$, let $\Sigma_\sigma \subset M$ be the (diffeomorphic) image of $B(0,r) \cap \sigma \subset T_pM$ under the exponential map exp$_p$. Show that the sectional curvature $\sec(\sigma)$ at $p$ (computed inside $M$) is equal to the sectional curvature (that is, Gaussian curvature) of the surface $\Sigma_\sigma$ at $p$, in the induced metric.}
 
 Clearly $\Sigma_\sigma$ is totally geodesic. Thus, by the above exercise $\nabla_X^{\Sigma_\sigma} Y = \nabla_X Y$ and, if $u,v$ a basis for $\sigma$
@@ -110,7 +117,15 @@ so
 
 \section{A Riemannian manifold is said to be $k$-\emph{point homogeneous} if for all pairs of points $(p_1, \dots, p_k)$ and $(q_1, \dots, q_k)$ with $d(p_i, p_j) = d(q_i, q_j)$ there is an isometry $F$ with $F(p_i) = q_i$. When $k=1$ we simply say that the space is homogeneous.}
 \subsection{Show that a homogeneous space has constant scalar curvature.}
+Fix $p,q$ and let $f: T_p M \to T_q M$ be the isomorphism induced by the isomoetry taking $p \mapsto q$. Thus compute
+\begin{align*}
+	\scal_p &= \sum_{j=1}^n \sum_{i=1}^n g(R(e_i, e_j) e_j, e_i)\\
+	 &= \sum_{j=1}^n \sum_{i=1}^n g( f( R(e_i, e_j) e_j) , f(e_i))\\
+ 	 &= \sum_{j=1}^n \sum_{i=1}^n g(  R(f(e_i), f(e_j))  f(e_j) , f(e_i))\\
+	 &= \scal_q
+\end{align*}
 \subsection{Show that if $k > 2$ and $(M,g)$ is $k$-point homogeneous, then $M$ is also $(k-1)$-point homogeneous.}
+Consider the pairs $(p_1, \dots, p_{k-1},  p_{k-1})$ and $(q_1, \dots, q_{k-1}, q_{k-1})$ 
 \subsection{Show that if $(M,g)$ is two-point homogeneous, then $(M,g)$ is an Einstein metric.}
 \subsection{Show that if $(M,g)$ is three-point homogeneous, then $(M,g)$ has constant curvature.}
 \subsection{Classify all three-point homogeneous spaces. \hint{The only one that isn't simply connected is the real projective space.}}
