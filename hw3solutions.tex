@@ -50,9 +50,13 @@
 
 \section{Assume that $(M,g)$ has the property that all geodesics exist for a fixed time $\epsilon > 0$. Show that $(M,g)$ is geodesically complete.}
 
-\section{A Riemannian manifold is said to be homogeneous if the isometry group acts transitively. Show that homogeneous manifolds are geodescially complete.}
+Fix $p\ \in M, v \in T_p M$. By assumption there exists a geodesic $\gamma : (- \epsilon/2 , \epsilon / 2 ) \to M$ with $\gamma(0) = p, \dot{\gamma}(0) = v$. However, taking $p' = \gamma(\epsilon/2 ), v' = \dot{\gamma} ( \epsilon / 2)$ we get another geodesic $\tilde{\gamma} :  (- \epsilon/2 , \epsilon / 2 ) \to M$. Since they coincide at $p', v'$ we can extend $\gamma : (-\epsilon / 2 , \epsilon) \to M$. Repeating this process we produce $\gamma : \R \to M$.
 
-\section{Let $N \subset (M,g)$ be a submanifold. Let $\nabla^N$ denote the connection on $N$ that comes from teh metric induced by $g$. Define the second fundamental form of $N$ in $M$ by $$\2(X,Y) = \nabla_X^N Y - \nabla_X Y$$ Show that $\2 =0$ on $N$ iff $N$ is totally geodesic. (The definition of \emph{totally geodesic} is on p. 145)}
+\section{A Riemannian manifold is said to be homogeneous if the isometry group acts transitively. Show that homogeneous manifolds are geodesically complete.}
+
+\section{Let $N \subset (M,g)$ be a submanifold. Let $\nabla^N$ denote the connection on $N$ that comes from the metric induced by $g$. Define the second fundamental form of $N$ in $M$ by $$\2(X,Y) = \nabla_X^N Y - \nabla_X Y$$ Show that $\2 =0$ on $N$ iff $N$ is totally geodesic. (The definition of \emph{totally geodesic} is on p. 145)}
+
+A submanifold $N \subset (M,g)$  is said to be \emph{totally geodesic} if for each $p \in N$ a neighborhood of $0 \in T_p N$ is mapped into $N$ via the exponential map $\exp_p$.
 
 \section{Let $p$ be a point in a Riemannian manifold $(M, g)$ and $\sigma \subset T_p M$ a two-dimensional subspace. For small $r > 0$, let $\Sigma_\sigma \subset M$ be the (diffeomorphic) image of $B(0,r) \cap \sigma \subset T_pM$ under the exponential map exp$_p$. Show that the sectional curvature $\sec(\sigma)$ at $p$ (computed inside $M$) is equal to the sectional curvature (that is, Gaussian curvature) of the surface $\Sigma_\sigma$ at $p$, in the induced metric.}
 
