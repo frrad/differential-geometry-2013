@@ -82,7 +82,9 @@ Clearly $\Sigma_\sigma$ is totally geodesic. Thus, by the above exercise $\nabla
 
 \section{Let $SO(n)$ be the Lie group of orthogonal matrices of determinant 1. Equip $SO(n)$ with a bi-invariant Riemannian metric $g$ of volume one, as constructed in the previous homework. The tangent space $T_I SO(n)$ can be identified with the space $\mathfrak{so}(n)$ of skew-adjoint matrices. Show that the exponential map (with respect to $g$) $$\exp_I : \mathfrak{so}(n) \to SO(n)$$ coincides with the usual matrix exponentiation $A \to e^A$. \\\\ \hint{Feel free to use Proposition 12 on p.79 in Petersen's book. Compare also exercise 19 in Petersen, Chapter 5, p.151.}}
 
-Let $\gamma_A(t) = e^{tA}$. Clearly $\gamma_A(0) = I, \dot{\gamma}_A(0) = A, \gamma(1) = e^A$. Thus, if $\gamma$ is a geodesic we have the desired result. But compute $\nabla_{\dot{\gamma}}  \dot{\gamma} = \frac{1}{2}[\dot{\gamma}, \dot{\gamma}] =0.$
+Let $\gamma_A(t) = e^{tA}$. Clearly $\gamma_A(0) = I, \dot{\gamma}_A(0) = A, \gamma(1) = e^A$. Thus, if $\gamma$ is a geodesic we have the desired result. But if we have left invariance we compute $\nabla_{\dot{\gamma}}  \dot{\gamma} = \frac{1}{2}[\dot{\gamma}, \dot{\gamma}] =0.$ It remains only to check left-invariance 
+
+
 
 \section{Let $\gamma :[0,1] \to M$ be a geodesic. Show that $\exp_{\gamma(0)}$ has a critical point at $t \dot{\gamma}(0)$ iff there is a Jacobi field $J$ along $\gamma$ such that $J(0) = 0$, $\dot{J}(0) \neq 0$, and $J(t) =0$.}
 
@@ -117,17 +119,17 @@ so
 
 \section{A Riemannian manifold is said to be $k$-\emph{point homogeneous} if for all pairs of points $(p_1, \dots, p_k)$ and $(q_1, \dots, q_k)$ with $d(p_i, p_j) = d(q_i, q_j)$ there is an isometry $F$ with $F(p_i) = q_i$. When $k=1$ we simply say that the space is homogeneous.}
 \subsection{Show that a homogeneous space has constant scalar curvature.}
-Fix $p,q$ and let $f: T_p M \to T_q M$ be the isomorphism induced by the isomoetry taking $p \mapsto q$. Thus compute
-\begin{align*}
-	\scal_p &= \sum_{j=1}^n \sum_{i=1}^n g(R(e_i, e_j) e_j, e_i)\\
-	 &= \sum_{j=1}^n \sum_{i=1}^n g( f( R(e_i, e_j) e_j) , f(e_i))\\
- 	 &= \sum_{j=1}^n \sum_{i=1}^n g(  R(f(e_i), f(e_j))  f(e_j) , f(e_i))\\
-	 &= \scal_q
-\end{align*}
+Since there is an isometry taking $p \mapsto q$ for all $p,q$ and scalar curvature is a local condition, it must be the same throughout the manifold.
 \subsection{Show that if $k > 2$ and $(M,g)$ is $k$-point homogeneous, then $M$ is also $(k-1)$-point homogeneous.}
 Consider the pairs $(p_1, \dots, p_{k-1},  p_{k-1})$ and $(q_1, \dots, q_{k-1}, q_{k-1})$ 
 \subsection{Show that if $(M,g)$ is two-point homogeneous, then $(M,g)$ is an Einstein metric.}
+We'll show that $\ric_p(v,v) = \ric_q(w,w)$. By symmetry of the Ricci tensor $\ric_p(v,v) = \ric_p(w,w)$ is enough to conclude that $\ric$ is Einstein at $p$, so this is sufficient to show the desired result.
+
+Let $p,q \in M$, $v \in T_p M , w \in T_q M$. There exists some $\epsilon > 0$, geodesics $\gamma, \tilde{\gamma} : (-\epsilon , \epsilon) \to M$ with $\gamma(0) = p , \dot{\gamma}(0) = v, \tilde{\gamma}(0) = q, \dot{\tilde{\gamma}}(0) = w$. The isometry taking $f(p) = q, f(\gamma(\epsilon) ) = \tilde{\gamma}(\epsilon)$ must have $D_f (v) = w $.
 \subsection{Show that if $(M,g)$ is three-point homogeneous, then $(M,g)$ has constant curvature.}
+We argue as above, this time constructing an isometry $f(p) = q$ with $D_f( \sigma) = \tau$ for $p,q \in M$, $\sigma, \tau$ planes in the respective tangent bundles.
+
+Thus, we can take $\sec_p(\sigma) = \sec_q(\tau)$ as desired.
 \subsection{Classify all three-point homogeneous spaces. \hint{The only one that isn't simply connected is the real projective space.}}
 
 
