@@ -54,19 +54,61 @@ Fix $p\ \in M, v \in T_p M$. By assumption there exists a geodesic $\gamma : (- 
 
 \section{A Riemannian manifold is said to be homogeneous if the isometry group acts transitively. Show that homogeneous manifolds are geodesically complete.}
 
+Fix $p \in M$ and let $\epsilon > 0 $ be the injectivity radius around $p$. 
+Let $q \in M$. By transitivity there exists an isometry $f : M \to M $ with $f(p) = q$. However, geodesics are taken to geodesics by isometries so the injectivity radius at $q$ is at least $\epsilon$.
+
+Since there is a global injectivity radius we can extend any geodesic indefinitely, as in the previous exercise.
+
 \section{Let $N \subset (M,g)$ be a submanifold. Let $\nabla^N$ denote the connection on $N$ that comes from the metric induced by $g$. Define the second fundamental form of $N$ in $M$ by $$\2(X,Y) = \nabla_X^N Y - \nabla_X Y$$ Show that $\2 =0$ on $N$ iff $N$ is totally geodesic. (The definition of \emph{totally geodesic} is on p. 145)}
 
 A submanifold $N \subset (M,g)$  is said to be \emph{totally geodesic} if for each $p \in N$ a neighborhood of $0 \in T_p N$ is mapped into $N$ via the exponential map $\exp_p$.
 
 \section{Let $p$ be a point in a Riemannian manifold $(M, g)$ and $\sigma \subset T_p M$ a two-dimensional subspace. For small $r > 0$, let $\Sigma_\sigma \subset M$ be the (diffeomorphic) image of $B(0,r) \cap \sigma \subset T_pM$ under the exponential map exp$_p$. Show that the sectional curvature $\sec(\sigma)$ at $p$ (computed inside $M$) is equal to the sectional curvature (that is, Gaussian curvature) of the surface $\Sigma_\sigma$ at $p$, in the induced metric.}
 
+Clearly $\Sigma_\sigma$ is totally geodesic. Thus, by the above exercise $\nabla_X^{\Sigma_\sigma} Y = \nabla_X Y$ and, if $u,v$ a basis for $\sigma$
+\begin{align*}
+	\sec(\sigma) &= \frac{ \langle R(u,v) v, u \rangle}{\langle u,u \rangle \langle v,v \rangle - \langle u, v \rangle^2}\\
+	&= \frac{ \langle \nabla_u \nabla_v v - \nabla_v \nabla_u v - \nabla_{[u,v]} v , u \rangle}{\langle u,u \rangle \langle v,v \rangle - \langle u, v \rangle^2}\\ 
+	&= \frac{ \langle \nabla^{\Sigma_\sigma}_u \nabla^{\Sigma_\sigma}_v v - \nabla^{\Sigma_\sigma}_v \nabla^{\Sigma_\sigma}_u v - \nabla^{\Sigma_\sigma}_{[u,v]} v , u \rangle}{\langle u,u \rangle \langle v,v \rangle - \langle u, v \rangle^2}\\ 
+	&= \sec^{\Sigma_\sigma}(\sigma)
+\end{align*}
+
 \section{Let $SO(n)$ be the Lie group of orthogonal matrices of determinant 1. Equip $SO(n)$ with a bi-invariant Riemannian metric $g$ of volume one, as constructed in the previous homework. The tangent space $T_I SO(n)$ can be identified with the space $\mathfrak{so}(n)$ of skew-adjoint matrices. Show that the exponential map (with respect to $g$) $$\exp_I : \mathfrak{so}(n) \to SO(n)$$ coincides with the usual matrix exponentiation $A \to e^A$. \\\\ \hint{Feel free to use Proposition 12 on p.79 in Petersen's book. Compare also exercise 19 in Petersen, Chapter 5, p.151.}}
+
+Let $\gamma_A(t) = e^{tA}$. Clearly $\gamma_A(0) = I, \dot{\gamma}_A(0) = A, \gamma(1) = e^A$. Thus, if $\gamma$ is a geodesic we have the desired result. But compute $\nabla_{\dot{\gamma}}  \dot{\gamma} = \frac{1}{2}[\dot{\gamma}, \dot{\gamma}] =0.$
 
 \section{Let $\gamma :[0,1] \to M$ be a geodesic. Show that $\exp_{\gamma(0)}$ has a critical point at $t \dot{\gamma}(0)$ iff there is a Jacobi field $J$ along $\gamma$ such that $J(0) = 0$, $\dot{J}(0) \neq 0$, and $J(t) =0$.}
 
+Suppose that such a $J$ exists, and let $\gamma_\tau$ be the one parameter family of geodesics specified by $J$. Because $J(0)= J(t) = 0$, we have $\gamma_\tau (0) = \gamma(0)$, $\gamma(t) = \gamma_\tau(t)$. Because $\dot{J} \neq 0$, $\gamma_\tau$ is not the trivial family of geodesics. Consider then  the path $\alpha(\tau)  = t \dot{\gamma_\tau}(0) \subseteq T_{\gamma(0)}M$. By construction $ \frac{d}{d \tau} \exp_{\gamma(0)} \alpha(\tau) =0$ .
+
+Conversely, suppose that $\exp_{\gamma(0)}$ has a critical point at $t \dot{\gamma}(0)$. If $w$ is the direction of zero derivative put
+\[J(t) = ( d exp_{\gamma(0)})_{t \dot{\gamma}(0)}(tw)\]
+
 \section{Let $\gamma$ be a geodesic and $X$ a Killing field in a Riemannian manifold. Show that the restriction of $X$ to $\gamma$ is a Jacobi field. (See the definition of a \emph{Killing field} on p.23.)}
 
-\section{A Riemannian manifold is said to be $k$-\emph{point homogeneous} if for all pairs of points $(p_1, \dots, p_k)$ and $(q_1, \dots, q_k)$ with $d(p_i, p_j) = d(q_i, q_j)$ there is an isometry $F$ with $F(p_i) = q_i$. When $k=1$ we simply say tat the space is homogeneous.}
+Let $X$ a Killing field (i.e. $L_X g =0$), and let $\{ E_1, E_2, \dots, E_n\}$ be a parallel orthonormal frame along $\gamma$ with $\dot{\gamma} =  \lambda E_1$. Compute:
+\begin{align*}
+	0 &= (L_X g)( \dot{\gamma}, E_i)\\
+	&= D_X(g(\dot{\gamma}, E_i))- g(L_X\dot{\gamma}, E_i) - g(\dot{\gamma}, L_X E_i )\\
+	&=-g(\nabla_X \dot{\gamma}, E_i) + g(\nabla_{\dot{\gamma}} X , E_i) - g(\dot{\gamma}, \nabla_X E_i) + g(\dot{\gamma}, \nabla_{E_i} X)\\
+	&= g( \nabla_{\dot{\gamma}}X , E_i) + g(\dot{\gamma}, \nabla_{E_i} X)
+\end{align*}
+so differentiating we have
+\begin{align*}
+	0 &= D_{\dot{\gamma}}(g( \nabla_{\dot{\gamma}} X , E_i)) + D_{\dot{\gamma}}(g(\dot{\gamma}, \nabla_{E_i} X)) \\
+	&= g( \nabla_{\dot{\gamma}} \nabla_{\dot{\gamma}} X, E_i ) + g( \dot{\gamma}, \nabla_{\dot{\gamma}} \nabla_{E_i} X)\\
+	&= g( \nabla_{\dot{\gamma}} \nabla_{\dot{\gamma}} X, E_i ) + g( \dot{\gamma}, \nabla_{\dot{\gamma}} \nabla_{E_i} X  - \nabla_{E_i} \nabla_{\dot{\gamma}} X -   \nabla_{[\dot{\gamma},E_i]} X)\\
+\end{align*}
+since
+\[ 0 = g( \nabla_{E_i} \dot{\gamma} , \nabla_{\dot{\gamma}} X) + g( \dot{\gamma}, \nabla_{\nabla_{E_i} \dot{\gamma}} X ) = D_{E_i} \left( g( \dot{\gamma} , \nabla_{\dot{\gamma}} X) \right) - g(\nabla_{E_i} \dot{\gamma}, \nabla_{\dot{\gamma} } X ) - g(\dot{\gamma}, \nabla_{\nabla_{E_i} \dot{\gamma}} X ) = g( \dot{\gamma},  \nabla_{E_i} \nabla_{\dot{\gamma}} X + \nabla_{[\dot{\gamma},E_i]} X)\]
+so
+\begin{align*}
+	0 &= g(\nabla_{\dot{\gamma}} \nabla_{\dot{\gamma}} X , E_i) + g(R(\dot{\gamma}, E_i) X , \dot{\gamma})\\
+	&= g(\nabla_{\dot{\gamma}}\nabla_{\dot{\gamma}}X, E_i) + g(R(X,\dot{\gamma}) \dot{\gamma}, E_i)\\
+	&= \nabla_{\dot{\gamma}} \nabla_{\dot{\gamma}} X + R(X, \dot{\gamma})\dot{\gamma}
+\end{align*}
+
+\section{A Riemannian manifold is said to be $k$-\emph{point homogeneous} if for all pairs of points $(p_1, \dots, p_k)$ and $(q_1, \dots, q_k)$ with $d(p_i, p_j) = d(q_i, q_j)$ there is an isometry $F$ with $F(p_i) = q_i$. When $k=1$ we simply say that the space is homogeneous.}
 \subsection{Show that a homogeneous space has constant scalar curvature.}
 \subsection{Show that if $k > 2$ and $(M,g)$ is $k$-point homogeneous, then $M$ is also $(k-1)$-point homogeneous.}
 \subsection{Show that if $(M,g)$ is two-point homogeneous, then $(M,g)$ is an Einstein metric.}
