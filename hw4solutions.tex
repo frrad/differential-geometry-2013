@@ -27,6 +27,9 @@
 \newcommand{\del}{\ensuremath{\partial}}
 \newcommand{\xt}[2]{\ensuremath{\Gamma^{#1}_{#2}}}
 
+
+\newcommand{\adjd}[1]{(-1)^{(n-#1)(#1+1)} * d^{n-#1-1} * }
+
 \DeclareMathOperator{\ric}{Ric}
 \DeclareMathOperator{\scal}{scal}
 \DeclareMathOperator{\tr}{tr}
@@ -69,11 +72,43 @@ so there can be no Einstein metric on $C_k$ for $k > 4$.
 
 \section{Describe all harmonic forms on the following Riemannian manifolds:}
 \subsection{The torus $T^n = S^1 \times \cdots \times S^1$ with the flat product metric;}
+Recall,
+\[H_{\mathrm{dR}}^{k}(T^n) \simeq \R^{n \choose k}\]
+
 \subsection{The sphere $S^n$ with its round metric;}
+Recall,
+\[H_{\mathrm{dR}}^{k}(S^n) \simeq \begin{cases} \R & \mbox{if } k = 0, \\ 0 & \mbox{if } k \neq 0 \end{cases}\]
+
+
 \subsection{\label{f-study}The complex projective space $\CP^n$ with the Fubini-Study metric.}
+Recall,
+\[H_{\mathrm{dR}}^k(\CP^n) \simeq \begin{cases} \R & k \mbox{ even},\ 0 \leq k \leq 2 n, \\ 0 & \mbox{otherwise} \end{cases}\]
+
+
+
 \subsection*{Feel free to use (without proof) the computation of the deRham cohomology groups of these spaces. Thus, in each case it suffices to exhibit a basis of harmonic forms of the required cardinality.  \hint{For \ref{f-study}, consider the powers of the K\"ahler form.}}
 
 \section{Show that the Laplacian on forms commutes with the Hodge star operator.}
+
+First verify that we have  
+\[* \delta^k d^k = d^{n-k-1} \delta^{n-k-1} * \iff * \delta^{n-k-1} d^{n-k-1} = d^{k} \delta^{k} * \]
+\begin{align*}
+    * \delta^k d^k & = * \adjd{k} d^k \\
+    &=  (-1)^{(n-k)(k+1)} (* *) d^{n-k-1} * d^k\\
+    &=  (-1)^{(n-k)(k+1)} (-1)^{k(n-k)} d^{n-k-1} * d^k\\
+    &=  (-1)^{(n-k)(2k+1)}   d^{n-k-1} * d^k {** (-1)^{k(n-k)}}\\
+    &=  (-1)^{(n-k)(3k+1)}   d^{n-k-1} * d^k * *  \\
+    &=  (-1)^{(n-k)(3k+1)}   d^{n-k-1} (-1)^{(n-k)(k+1)}\adjd{(n-k-1)} *  \\
+    &=  (-1)^{(n-k)(4k+2)}   d^{n-k-1} \delta^{n-k-1} *  \\
+    &=  d^{n-k-1} \delta^{n-k-1} *. \\
+\end{align*}
+
+Consequently compute:
+\begin{align*}
+    * \Delta &= *d^{k-1} \delta^{k-1} + * \delta^k d^k\\
+    &= \delta^{n-k}d^{n-k}* + d^{n-k-1}\delta^{n-k-1} * \\
+    &= \Delta *
+\end{align*}
 
 \section{Consider the Laplacian $\Delta: \Omega^p(M) \to \Omega^p(M)$, where $M$ is a closed, oriented Riemannian manifold.}
 Throughout we'll use  ``Fact 2'' from class:
