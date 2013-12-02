@@ -66,7 +66,7 @@ So clearly, $\chi(M) \geq \frac{3}{2}\sigma(M)$ with equality exactly when the m
 
 Let $C_k = \overbrace{\CP^2 \# \cdots \# \CP^2}^{k\ \mathrm{times}}$ denote the connect sum of $k$ copies of $\CP^2$ as suggested in hint. Since $\chi(\CP^2) = 3$ and $\chi( X \# Y) = \chi(X) + \chi(Y) -2 $, in general $\chi(C_k) = k+2$.
 
-Compute also $\sigma(\C_k) = k$ \marginpar{JUSTIFY}. So in this case the above inequality asserts that
+Compute also $\sigma(\C_k) = k$ since by dimension constraints $\sigma(\CP^2) = 1$ and $\sigma(X \# Y) = \sigma(X) + \sigma(Y)$. So in this case the above inequality asserts that
 \[\chi(C_k) = k+2 \geq \frac{3}{2} k = \frac{3}{2} \sigma(C_k) \iff k \leq 4.\]
 so there can be no Einstein metric on $C_k$ for $k > 4$.
 
@@ -84,20 +84,21 @@ Therefore, the harmonic $p$-forms on $T^n$ are exactly those which are harmonic 
 Recall,
 \[H_{\mathrm{dR}}^{k}(S^n) \simeq \begin{cases} \R & \mbox{if } k = 0, n \\ 0 & \mbox{otherwise } \end{cases}\]
 
-By compactness of $S^n$, harmonic functions are constant. Therefore, the harmonic 0-forms are just the constant functions. 
-
-The harmonic $n$-forms are 
+By compactness of $S^n$, the harmonic 0-forms are just the constant functions. 
+Furthermore, as $\Delta$ and $*$ commute (Exercise \ref{commute}), the harmonic $n$-forms are just $*\omega$ for $\omega$ constant 0-forms.
 
 \subsection{\label{f-study}The complex projective space $\CP^n$ with the Fubini-Study metric.}
 Recall,
 \[H_{\mathrm{dR}}^k(\CP^n) \simeq \begin{cases} \R & k \mbox{ even},\ 0 \leq k \leq 2 n, \\ 0 & \mbox{otherwise} \end{cases}\]
 For 0-forms we have the constant functions. 
 
-Powers of the K\"{a}hler form are harmonic on a K\"{a}hler manifold.
+Powers of the K\"{a}hler form $\omega$ are harmonic on a K\"{a}hler manifold.
 \begin{proof}
-Since the Laplacian commutes with wedge product, $\alpha, \beta$ harmonic implies $\alpha \wedge \beta$ harmonic. Thus it suffices to show that the K\"{a}hler form  is harmonic
+If $\alpha$ is a  harmonic form then so is $\alpha \wedge \omega$ since this operation commutes with the Laplacian. Thus it suffices to show that the K\"{a}hler form  is harmonic
 
-%http://math.stackexchange.com/questions/242857/kahler-form-is-harmonic
+Take a local frame $X_1, Y_1, \dots, X_m , Y_m$ with $J(X_i) = Y_i$. In this frame $\omega = \sum X_i^\flat \wedge Y_i^\flat$. Furthermore
+\[*\omega = \sum X_1^\flat \wedge Y_1^\flat \wedge \dots \wedge \hat X_i^\flat\wedge \hat Y_i^\flat \wedge \dots \wedge X_m^\flat \wedge Y_m^\flat = \frac{1}{(m-1)!}\omega^{m-1}\]
+Thus $\omega$ co-closed. Since $\omega$ is a K\"{a}hler form it's automnatically closed and therefore harmonic.
 \end{proof}
 
 
@@ -105,6 +106,7 @@ Since the Laplacian commutes with wedge product, $\alpha, \beta$ harmonic implie
 \subsection*{Feel free to use (without proof) the computation of the deRham cohomology groups of these spaces. Thus, in each case it suffices to exhibit a basis of harmonic forms of the required cardinality.  \hint{For \ref{f-study}, consider the powers of the K\"ahler form.}}
 
 \section{Show that the Laplacian on forms commutes with the Hodge star operator.}
+\label{commute}
 
 First verify that we have  
 \[* \delta^k d^k = d^{n-k-1} \delta^{n-k-1} * \iff * \delta^{n-k-1} d^{n-k-1} = d^{k} \delta^{k} * \]
