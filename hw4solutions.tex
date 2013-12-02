@@ -73,16 +73,32 @@ so there can be no Einstein metric on $C_k$ for $k > 4$.
 \section{Describe all harmonic forms on the following Riemannian manifolds:}
 \subsection{The torus $T^n = S^1 \times \cdots \times S^1$ with the flat product metric;}
 Recall,
-\[H_{\mathrm{dR}}^{k}(T^n) \simeq \R^{n \choose k}\]
+\[H_{\mathrm{dR}}^{p}(T^n) \simeq \R^{n \choose p}.\]
+Recall also (see for instance Jost 2.1.27) that in the Euclidean metric on $\R^n$ the Hodge Laplacian of a $p$-form $\omega = \omega_{i_1 \cdots i_p} dx^{i_1} \wedge \cdots \wedge dx^{i_p} $ is given by  
+\[\Delta \omega = \delta d \omega + d \delta \omega = - \sum_{j=1}^n \frac{\del^2 \omega_{i_1 \cdots i_p}}{( \del x^j )^2} dx^{i_1} \wedge \cdots \wedge dx^{i_p}\]
+
+Therefore, the harmonic $p$-forms on $T^n$ are exactly those which are harmonic in each coordinate. Since $T^n$  compact, all harmonic functions are constant. 
+
 
 \subsection{The sphere $S^n$ with its round metric;}
 Recall,
-\[H_{\mathrm{dR}}^{k}(S^n) \simeq \begin{cases} \R & \mbox{if } k = 0, \\ 0 & \mbox{if } k \neq 0 \end{cases}\]
+\[H_{\mathrm{dR}}^{k}(S^n) \simeq \begin{cases} \R & \mbox{if } k = 0, n \\ 0 & \mbox{otherwise } \end{cases}\]
 
+By compactness of $S^n$, harmonic functions are constant. Therefore, the harmonic 0-forms are just the constant functions. 
+
+The harmonic $n$-forms are 
 
 \subsection{\label{f-study}The complex projective space $\CP^n$ with the Fubini-Study metric.}
 Recall,
 \[H_{\mathrm{dR}}^k(\CP^n) \simeq \begin{cases} \R & k \mbox{ even},\ 0 \leq k \leq 2 n, \\ 0 & \mbox{otherwise} \end{cases}\]
+For 0-forms we have the constant functions. 
+
+Powers of the K\"{a}hler form are harmonic on a K\"{a}hler manifold.
+\begin{proof}
+Since the Laplacian commutes with wedge product, $\alpha, \beta$ harmonic implies $\alpha \wedge \beta$ harmonic. Thus it suffices to show that the K\"{a}hler form  is harmonic
+
+%http://math.stackexchange.com/questions/242857/kahler-form-is-harmonic
+\end{proof}
 
 
 
