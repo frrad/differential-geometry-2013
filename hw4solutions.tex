@@ -32,6 +32,9 @@
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\2}{II}
 
+\newtheorem{fact}{Fact}
+
+
 \newcommand{\hint}[1]{{\emph{Hint:} #1}} %This line shows hints
 %\newcommand{\hint}[1]{} %Use this line to hide all hints
 \newcommand{\note}[1]{{(\emph{Note:} #1)}} %This line shows notes
@@ -50,7 +53,19 @@
 
 \section{In dimensions $4n$ we have that the Hodge $*$ : $H^{2n}(M) \to H^{2n}(M)$ satisfies $**=I.$ The difference in the dimensions of the eigenspaces for $\pm 1$ is called the \emph{signature} of $M:$ $$\tau(M) = \sigma(M) = \dim( \ker (*-I) - \ker (*+I)).$$ One can show that this does not depend on the metric used to define $*$, by observing that it is the index of the symmetric bilinear map $$H^{2n}(M) \times H^{2n}(M) \to \R, $$ $$(\omega_1, \omega_2) \to \int \omega_1 \wedge \omega_2.$$ Recall that the index of a symmetric bilinear map is the difference between positive and negative diagonal elements when it has been put into diagonal form. In dimension 4 one can show that $$\sigma(M) = \frac{1}{12 \pi^2} \int_M \left(  \left| W^+ \right|^2 - \left| W^- \right|^2 \right).$$ Using the exercises from chapter 4, show that for an Einstein metric in dimension 4 we have $$\chi(M) \geq \frac{3}{2} \sigma(M),$$ with equality holding iff the metric is Ricci flat and $W^-=0.$ Conclude that not all four manifolds admit Einstein metrics. In higher dimensions there are no known obstructions to the existence of Einstein metrics. \hint{consider connected sums of $\CP^2$ with itself $k$ times.}}
 
-\pets{7}{24}{233}
+From \pets{4}{9}{109} we have
+\begin{align*}
+\chi(M) &= \frac{1}{8 \pi^2} \int_M \left( |W^+|^2 + |W^-|^2 + \frac{\scal^2}{24} \right)\\
+&=  \frac{3}{2} \left[ \frac{1}{12 \pi^2} \int_M \left( |W^+|^2 - |W^-|^2 \right)+ \frac{1}{12 \pi^2} \int_M \left(  \frac{\scal^2}{24} + 2 \cdot |W^-|^2 \right) \right] \\
+&=  \frac{3}{2}  \sigma(M) + \frac{1}{8 \pi^2} \int_M \left(  \frac{\scal^2}{24} + 2 \cdot |W^-|^2 \right)   
+\end{align*}
+So clearly, $\chi(M) \geq \frac{3}{2}\sigma(M)$ with equality exactly when the metric is Ricci flat with  $W^- =0$.
+
+Let $C_k = \overbrace{\CP^2 \# \cdots \# \CP^2}^{k\ \mathrm{times}}$ denote the connect sum of $k$ copies of $\CP^2$ as suggested in hint. Since $\chi(\CP^2) = 3$ and $\chi( X \# Y) = \chi(X) + \chi(Y) -2 $, in general $\chi(C_k) = k+2$.
+
+Compute also $\sigma(\C_k) = k$ \marginpar{JUSTIFY}. So in this case the above inequality asserts that
+\[\chi(C_k) = k+2 \geq \frac{3}{2} k = \frac{3}{2} \sigma(C_k) \iff k \leq 4.\]
+so there can be no Einstein metric on $C_k$ for $k > 4$.
 
 \section{Describe all harmonic forms on the following Riemannian manifolds:}
 \subsection{The torus $T^n = S^1 \times \cdots \times S^1$ with the flat product metric;}
@@ -61,9 +76,25 @@
 \section{Show that the Laplacian on forms commutes with the Hodge star operator.}
 
 \section{Consider the Laplacian $\Delta: \Omega^p(M) \to \Omega^p(M)$, where $M$ is a closed, oriented Riemannian manifold.}
+Throughout we'll use  ``Fact 2'' from class:
+\begin{fact} \label{fact2}
+If $\{ \alpha_n \}$ is a sequence of smooth $p$-forms on $M$ such that $||\alpha_n || \leq c$ and $||\Delta \alpha_n || \leq c$ for all $n$ and some constant $c > 0 $ then $\{ \alpha_n \}$ has a Cauchy subsequence.
+\end{fact}
+
+
 \subsection{Prove that the eigenvalues of $\Delta$ are nonnegative, and have no finite accumulation points.}
+Suppose $\lambda$ satisfies $\Delta \omega = \lambda \omega$ for some $\omega \in \Omega^p(M)$. Then $(\Delta \omega, \omega) = \lambda(\omega, \omega) \iff (\delta \omega, \delta \omega) + (d \omega, d \omega) = \lambda ||\omega||^2$. Therefore, $\lambda \geq 0$.
+
+Suppose that $\alpha < \infty$ is an accumulation point of the eigenvalues of $\Delta$ and let $\{ \omega_i \}$ be an orthonormal sequence of eigenfunctions corresponding to distinct eigenvalues $\{\lambda_i\}$ converging to $\alpha$. (Note: such a sequence can be constructed by \ref{orthog}). Now, by Fact \ref{fact2} $\{\omega_i \}$ has a Cauchy subsequence, a contradiction.
+
 \subsection{Prove that the eigenspaces of $\Delta$ are finite dimensional.}
-\subsection{Prove that the eigenspaces corresponding to distinct eigenvalues are orthogonal.}
+Suppose that the eigenspace corresponding to $\lambda$ is infinite dimensional. Then by definition there exists an infinite sequence $\{ \omega_i \}$ of orthonormal eigenfunctions for $\lambda$. By Fact \ref{fact2} this basis has a Cauchy subsequence, a contradiction.
+
+\subsection{Prove that the eigenspaces corresponding to distinct eigenvalues are orthogonal.}\label{orthog}
+Let $A$ be a self-adjoint operator, $\alpha, \beta$ eigenvectors corresponding to eigenvalues $\lambda, \mu$. Then $(A \alpha, \beta) = \lambda ( \alpha, \beta)$ and $(\alpha, A \beta) = \mu (\alpha, \beta)$. Since $A$ is self-adjoint we have $\lambda(\alpha, \beta) = \mu(\alpha, \beta)$ so if $\lambda \neq \mu$ it must be that  $(\alpha, \beta)=0$ as desired. 
+
+The Laplacian is self-adjoint.
+
 \section*{\note{It can also be shown that $\Delta$ has infinitely many eigenvalues, and that the direct sum of all eigenspaces is dense in $\Omega^p(M)$. If you are interested, see Exercise 16 on p.254 in Warner, ``Foundations of Differentiable Manifolds and Lie Groups''}}
 
 \section{Let $M$ be a closed, oriented, Riemannian 4-manifold. Let us identify $H^2(M; \R)$ with the space of harmonic 2-forms using the Hodge theorem. Note that the star operator $*$ acting on $\Omega^2(M; \R)$ satisfies $*^2 =1$, and therefore we have a direct sum decomposition $$\Omega^2(M; \R) = \Omega^+(M) \oplus \Omega^- (M),$$ where $\Omega^\pm$ are the eigenspaces of $*$ corresponding to the eigenvalues $\pm 1$. Restricting this decomposition to harmonic forms, we obtain another direct sum decomposition $$H^2(M; \R) = \mathcal{H}^+ \oplus \mathcal{H}^-,$$ where $\mathcal{H}^\pm$ are the eigenspace of $*$ acting on $H^2(M; \R)$, corresponding to eigenvalues $\pm 1$. \\\\ Let $d^+ : \Omega^1(M) \to \Omega^+(M)$ be the composition of $d$ with orthogonal projection to $\Omega^+$, and consider the three-term complex $$\Omega^0(M) \stackrel{d}{\to} \Omega^1(M) \stackrel{d^+}{\to} \Omega^+(M).$$ Show that the cohomology groups of this complex can be naturally identified with $H^0(M; \R)$, $H^1(M; \R)$, and $\mathcal{H}^+(M)$, respectively.}
